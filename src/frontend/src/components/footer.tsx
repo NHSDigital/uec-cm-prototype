@@ -1,6 +1,9 @@
 import React from 'react';
 import { Footer as NhsFooter } from "nhsuk-react-components";
-import { FooterProps } from './interface';
+
+interface FooterProps {
+  buildDate: string;
+}
 
 const Footer: React.FC<FooterProps> = ({ buildDate }) => {
   return (

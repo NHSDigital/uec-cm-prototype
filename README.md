@@ -7,9 +7,10 @@ Repository to hold prototype of new capacity management user interface.
 - [uec cm](#uec-cm-prototype)
   - [About](#about-the-uec-cm-prototype-repository)
   - [Installation](#installation)
-  - [Running the project](#running-the-project)
-  - [Building the project](#building-the-project)
-  - [Incrementing the build number](#incrementing-the-build-number)
+  - [Frontend](#frontend)
+    - [Running the project](#running-the-project)
+    - [Building the project](#building-the-project)
+    - [Incrementing the build number](#incrementing-the-build-number)
   - [Usage](#usage)
   - [Licence](#license)
 
@@ -26,21 +27,24 @@ The code is exploratory and has not been tested.
 - Setup git locally on your machine and configure the git user email and name.
 - Setup gpg commit signing, which is required for commits to be 'verified'. Guidance on confluence
 - Run the pre-commit hooks located in the 'scripts' folder
+- Clone the repository
+- Install and setup Dockers
 - Install an appropriate IDE compatible with Typescript
 - Install Node and NPM
-- Install and setup Docker
-- Clone the repository
 
-## Running the project
+## Frontend
+
+### Running the project
 
 ```shell
+cd ./src/frontend/src
 npm install
 npm start
 ```
 
 Runs the app and is viewable at `http://localhost:3000` in the browser.
 
-## Building the project
+### Building the project
 
 `npm run build`
 
