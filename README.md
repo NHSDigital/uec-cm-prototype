@@ -15,7 +15,7 @@ Repository to hold prototype of new capacity management user interface.
 
 ## About the uec-cm-prototype repository
 
-The repository contains code needed to run the capacity management user interface. It was previously held in the uec-cm repository, leveraging existing react set-up before moving to a the separate setup.
+The repository contains code needed to run the capacity management user interface. It was previously held in the uec-cm repository, leveraging existing react set-up before moving to this separate repository.
 
 The UI screens in this repository are designed by the UX team and developed so users can interact with the screens and journey flows during UR sessions.
 
