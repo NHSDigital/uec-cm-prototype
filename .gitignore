@@ -60,5 +60,3 @@ tests/*/playwright/.cache/
 **/accessibility-reports/*
 
 /node_modules/
-
-src/frontend/src/buildconfig.json
