@@ -20,7 +20,7 @@ type FormData = {
   dischargesOrDeathExpectedNumberIn12Hours: string;
   yesterdaySurgeryCancellations: string;
   yesterdayRefusedUnplannedAdmissions: string;
-  notDischargedPatientsForNonClenicalReasons: string;
+  notDischargedPatientsForNonClinicalReasons: string;
   patientsOfPimsTs: string;
 };
 
@@ -58,8 +58,8 @@ const HospitalQuestionnaire: React.FC = () => {
       data?.yesterdaySurgeryCancellations.toString() || "",
     yesterdayRefusedUnplannedAdmissions:
       data?.yesterdayRefusedUnplannedAdmissions.toString() || "",
-    notDischargedPatientsForNonClenicalReasons:
-      data?.notDischargedPatientsForNonClenicalReasons.toString() || "",
+    notDischargedPatientsForNonClinicalReasons:
+      data?.notDischargedPatientsForNonClinicalReasons.toString() || "",
     patientsOfPimsTs: data?.patientsOfPimsTs.toString() || "",
   });
 
@@ -82,8 +82,8 @@ const HospitalQuestionnaire: React.FC = () => {
       data?.yesterdaySurgeryCancellations.toString() || "",
     yesterdayRefusedUnplannedAdmissions:
       data?.yesterdayRefusedUnplannedAdmissions.toString() || "",
-    notDischargedPatientsForNonClenicalReasons:
-      data?.notDischargedPatientsForNonClenicalReasons.toString() || "",
+    notDischargedPatientsForNonClinicalReasons:
+      data?.notDischargedPatientsForNonClinicalReasons.toString() || "",
     patientsOfPimsTs: data?.patientsOfPimsTs.toString() || "",
   });
 
@@ -211,10 +211,10 @@ const HospitalQuestionnaire: React.FC = () => {
         "Yesterday refused unplanned admissions is not valid";
     }
     if (
-      !formData.notDischargedPatientsForNonClenicalReasons ||
-      isNaN(Number(formData.notDischargedPatientsForNonClenicalReasons))
+      !formData.notDischargedPatientsForNonClinicalReasons ||
+      isNaN(Number(formData.notDischargedPatientsForNonClinicalReasons))
     ) {
-      newErrors.notDischargedPatientsForNonClenicalReasons =
+      newErrors.notDischargedPatientsForNonClinicalReasons =
         "Not discharged patients for non clenical reasons is not valid";
     }
     if (
@@ -747,36 +747,36 @@ const HospitalQuestionnaire: React.FC = () => {
 
               <div
                 className={`nhsuk-form-group ${
-                  errors.notDischargedPatientsForNonClenicalReasons
+                  errors.notDischargedPatientsForNonClinicalReasons
                     ? "nhsuk-form-group--error"
                     : ""
                 }`}
               >
                 <label
                   className="nhsuk-label"
-                  htmlFor="notDischargedPatientsForNonClenicalReasons"
+                  htmlFor="notDischargedPatientsForNonClinicalReasons"
                 >
                   Number of patients not discharged yesterday for non-clinical
                   reasons
                 </label>
-                {errors.notDischargedPatientsForNonClenicalReasons && (
+                {errors.notDischargedPatientsForNonClinicalReasons && (
                   <span
                     className="nhsuk-error-message"
-                    id="notDischargedPatientsForNonClenicalReasons-error"
+                    id="notDischargedPatientsForNonClinicalReasons-error"
                   >
                     Enter a valid numerical number
                   </span>
                 )}
                 <input
                   className="nhsuk-input"
-                  id="notDischargedPatientsForNonClenicalReasons"
-                  name="notDischargedPatientsForNonClenicalReasons"
+                  id="notDischargedPatientsForNonClinicalReasons"
+                  name="notDischargedPatientsForNonClinicalReasons"
                   type="text"
-                  value={formData.notDischargedPatientsForNonClenicalReasons}
+                  value={formData.notDischargedPatientsForNonClinicalReasons}
                   onChange={handleInputChange}
                   aria-describedby={
-                    errors.notDischargedPatientsForNonClenicalReasons
-                      ? "notDischargedPatientsForNonClenicalReasons-error"
+                    errors.notDischargedPatientsForNonClinicalReasons
+                      ? "notDischargedPatientsForNonClinicalReasons-error"
                       : undefined
                   }
                 />

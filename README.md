@@ -30,7 +30,7 @@ The code is exploratory and has not been tested.
 - Clone the repository
 - Install and setup Dockers
 - Install an appropriate IDE compatible with Typescript
-- Install Node and NPM
+- Install Node (v20.x.x) and NPM
 
 ## Frontend
 
