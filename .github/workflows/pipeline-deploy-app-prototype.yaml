@@ -1,9 +1,6 @@
 name: Pipeline Deployment Application Prototype Environment
 
 on:
-  push:
-    branches:
-      - 'task/*'
   workflow_dispatch:
     inputs:
       environment:
@@ -29,8 +26,8 @@ jobs:
     ]
     uses: NHSDigital/uec-dos-management/.github/workflows/build-react-app.yaml@latest
     with:
-      environment: 'prototype'
-      workspace: 'prototype-v1'
+      environment: ${{ inputs.environment }}
+      workspace: ${{ inputs.workspace }}
       domain: ${{ needs.metadata.outputs.reponame }}
       commit_hash: ${{ needs.metadata.outputs.commit_hash }}
       artefact_bucket_name: ${{ needs.metadata.outputs.artefact_bucket_name }}
@@ -40,24 +37,24 @@ jobs:
     secrets: inherit
 
   deploy-application-infrastructure:
-    name: "Deploy Application Infrastructure to ${{ needs.metadata.outputs.environment }} Environment"
+    name: "Deploy Application Infrastructure to ${{ inputs.environment }} Environment"
     needs: [
       metadata,
       build-and-push-react-artefacts,
     ]
     uses: NHSDigital/uec-dos-management/.github/workflows/deploy-infrastructure.yaml@latest
     with:
-      environment: 'prototype'
+      environment: ${{ inputs.environment }}
       domain: ${{ needs.metadata.outputs.reponame }}
       project: ${{ vars.PROJECT }}
-      workspace: 'prototype-v1'
+      workspace: ${{ inputs.workspace }}
       stacks: "['application']"
       action: apply
       workflow_timeout: 10
     secrets: inherit
 
   deploy-react-app:
-    name: "Deploy React Application to ${{ needs.metadata.outputs.environment }} Environment"
+    name: "Deploy React Application to ${{ inputs.environment }} Environment"
     needs: [
       metadata,
       deploy-application-infrastructure,
@@ -65,8 +62,8 @@ jobs:
     ]
     uses: NHSDigital/uec-dos-management/.github/workflows/deploy-react-app.yaml@latest
     with:
-      environment: 'prototype'
-      workspace: 'prototype-v1'
+      environment: ${{ inputs.environment }}
+      workspace: ${{ inputs.workspace }}
       domain: ${{ needs.metadata.outputs.reponame }}
       artefact_sub_dir: ${{ inputs.workspace }}
       commit_hash: ${{ needs.metadata.outputs.commit_hash }}
