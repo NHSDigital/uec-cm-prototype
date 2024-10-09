@@ -1,0 +1,27 @@
+name: Pipeline Deploy Account Level Infrastructure
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+    metadata:
+      name: "Get Metadata"
+      uses: NHSDigital/uec-dos-management/.github/workflows/metadata.yaml@latest
+
+    deploy-account-infrastructure-apply-prototype:
+      name: "Deploy Account Level Infrastructure to prototype account"
+      needs:
+        [
+          metadata,
+        ]
+      uses: NHSDigital/uec-dos-management/.github/workflows/deploy-infrastructure.yaml@latest
+      with:
+        environment: prototype
+        domain: ${{ needs.metadata.outputs.reponame }}
+        project: ${{ vars.PROJECT }}
+        workspace: ${{ needs.metadata.outputs.workspace }}
+        stacks: '["terraform_management", "github-runner"]'
+        action: apply
+      secrets: inherit
