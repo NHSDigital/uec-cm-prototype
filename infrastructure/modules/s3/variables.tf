@@ -53,3 +53,9 @@ variable "website_map" {
   description = "Map containing static website hosting"
   default     = {}
 }
+variable "s3_versioning" {
+  description = "Enable versioning for the S3 bucket"
+  type        = bool
+  default     = false
+}
+
