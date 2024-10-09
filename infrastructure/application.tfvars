@@ -17,4 +17,4 @@ aws_ip_reputation_rule_name     = "aws-ip-reputation-list"
 acl_metric_name                 = "waf-acl-metric"
 custom_rate_limited_rule_name   = "custom-rate-limit-rule"
 custom_rate_limited_metric_name = "custom-rate-limit-metric"
-
+s3_versioning                   = true

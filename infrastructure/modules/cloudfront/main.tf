@@ -22,6 +22,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   comment             = var.comment
   default_root_object = var.default_root_object
   web_acl_id          = var.web_acl_id
+  price_class         = "PriceClass_100"
 
   default_cache_behavior {
     allowed_methods  = var.allowed_methods

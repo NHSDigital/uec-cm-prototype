@@ -30,14 +30,12 @@ resource "aws_iam_policy" "access_policy_s3" {
   {
     "Version":"2012-10-17",
     "Statement": [
-
         {
             "Action": "s3:*",
             "Effect": "Allow",
             "Resource": "*",
             "Sid": "VisualEditor5"
         },
-
         {
             "Effect": "Allow",
             "Action": "s3:ListBucket",

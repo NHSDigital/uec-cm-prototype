@@ -5,7 +5,7 @@ cost_centre      = "P0675"
 data_type        = "PCD"
 project_type     = "alpha"
 public_facing    = "n"
-service_category = "platinum"
+service_category = "bronze"
 on_off_pattern   = "alwaysOn"
 
 # required by two different stacks

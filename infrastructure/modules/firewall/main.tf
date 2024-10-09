@@ -1,11 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-    }
-  }
-}
-
 resource "aws_wafv2_web_acl" "waf_acl" {
   name        = "${var.waf_name}${local.workspace_suffix}"
   description = "CM Frontend WAF"
@@ -49,13 +41,13 @@ resource "aws_wafv2_web_acl" "waf_acl" {
     name     = "${var.non_gb_rule_metric_name}${local.workspace_suffix}"
     priority = 1
     action {
-      count {}
+      block {}
     }
     statement {
       not_statement {
         statement {
           geo_match_statement {
-            country_codes = ["GB"]
+            country_codes = ["GB", "JE", "IM"]
           }
         }
       }

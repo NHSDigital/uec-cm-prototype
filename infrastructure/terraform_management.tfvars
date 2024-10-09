@@ -1,1 +1,1 @@
-# None
+s3_versioning = true
